@@ -1,6 +1,5 @@
 <template>
 	<div class="game">
-		GAMEEEE
 		<div class="game__calc">
 			<game-calc></game-calc>
 		</div>
