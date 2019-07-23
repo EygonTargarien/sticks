@@ -1,5 +1,5 @@
 <template>
-	<div class="calc">
+	<div class="calc" >
 		<div class="calc__board">
 			<lego-item legoKey="1_1"></lego-item>
 			<lego-item legoKey="1_2"></lego-item>
@@ -36,11 +36,14 @@
 
 <style scoped lang=scss>
 	.calc{
-		padding: 100px;
 		&__board{
+			transform: rotate(45deg);
 			display: flex;
 			flex-wrap: wrap;
-			width: 400px;
+			width: 372px;
+			padding: 15px 20px 20px 15px;
+			background: #fff;
+			border-radius: 10px;
 		}
 	}
 </style>

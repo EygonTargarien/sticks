@@ -11,34 +11,57 @@
 
 		<div class="lego__change" :class="{'has-active': hasOpenChange}" @mouseleave="hasOpenChange = false">
 			<div class="lego__item has-top" v-if="!legoCnf.t">
-				<div class="lego__icon" @click="onsSelectBorder('t')"></div>
+				<div class="lego__icon" @click="onsSelectBorder('t')">
+					<icon-box>
+						<icon-arr></icon-arr>
+					</icon-box>
+				</div>
 			</div>
 			<div class="lego__item has-right" v-if="!legoCnf.r">
-				<div class="lego__icon" @click="onsSelectBorder('r')"></div>
+				<div class="lego__icon" @click="onsSelectBorder('r')">
+					<icon-box >
+						<icon-arr></icon-arr>
+					</icon-box>
+				</div>
 			</div>
 			<div class="lego__item has-bottom" v-if="!legoCnf.b">
-				<div class="lego__icon" @click="onsSelectBorder('b')"></div>
+				<div class="lego__icon" @click="onsSelectBorder('b')">
+					<icon-box>
+						<icon-arr></icon-arr>
+					</icon-box>
+				</div>
 			</div>
 			<div class="lego__item has-left" v-if="!legoCnf.l">
-				<div class="lego__icon" @click="onsSelectBorder('l')"></div>
+				<div class="lego__icon" @click="onsSelectBorder('l')">
+					<icon-box>
+						<icon-arr></icon-arr>
+					</icon-box>
+				</div>
 			</div>
 		</div>
 
 		<div class="lego__label" v-if="winType">
-			<div class="lego__player1" v-if="winType == 'player_1'">
-				X
+			<div class="lego__player" v-if="winType == 'player_1'">
+				<img :src="require('@img/player_1.png')" alt="">
 			</div>
 
-			<div class="lego__player1" v-if="winType == 'player_2'">
-				O
+			<div class="lego__player" v-if="winType == 'player_2'">
+				<img :src="require('@img/player_2.png')" alt="">
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	import IconBox from '@icons/IconBox';
+	import IconArr from '@icons/IconArr';
+
 	export default {
 		name: 'lego-item',
+		components:{
+			IconBox,
+			IconArr
+		},
 		props: ['legoKey'],
 		data () {
 			return {
@@ -89,30 +112,31 @@
 
 <style scoped lang=scss>
 	.lego {
-		width: 100px;
-		height: 100px;
-		border: 3px solid $c_border;
-		margin-right: -3px;
-		margin-bottom: -3px;
+		background: #fff;
+		width: 90px;
+		height: 90px;
+		border: 6px solid $c_border;
+		margin-right: -6px;
+		margin-bottom: -6px;
 		position: relative;
 		&.has-top {
-			border-top: 3px solid $c_alt;
+			border-top: 6px solid $c_alt;
 		}
 		&.has-right {
-			border-right: 3px solid $c_alt;
+			border-right: 6px solid $c_alt;
 		}
 		&.has-bottom {
-			border-bottom: 3px solid $c_alt;
+			border-bottom: 6px solid $c_alt;
 		}
 		&.has-left {
-			border-left: 3px solid $c_alt;
+			border-left: 6px solid $c_alt;
 		}
 		&__body{
 			height: 100%;
 			cursor: pointer;
 			transition: all 0.3s;
 			&:hover{
-				background: rgba(238,238,238,0.5);
+				background: rgba(238,238,238,0.8);
 			}
 		}
 		&__change{
@@ -123,7 +147,7 @@
 			width: 100%;
 			opacity: 0;
 			visibility: hidden;
-			transition: all 0.3s;
+			transition: all 0.1s;
 			z-index: 1;
 			&.has-active{
 				opacity: 1;
@@ -133,31 +157,43 @@
 		&__item{
 			position: absolute;
 			&.has-top{
-				top: -10px;
+				top: -22px;
 				left: 50%;
 				transform: translateX(-50%);
+				.lego__icon{
+					transform: rotate(-90deg);
+				}
 			}
 			&.has-right{
-				right: -10px;
+				right: -22px;
 				top: 50%;
 				transform: translateY(-50%);
 			}
 			&.has-bottom{
-				bottom: -10px;
+				bottom: -22px;
 				left: 50%;
 				transform: translateX(-50%);
+				.lego__icon{
+					transform: rotate(90deg);
+				}
 			}
 			&.has-left{
-				left: -10px;
+				left: -22px;
 				top: 50%;
 				transform: translateY(-50%);
+				.lego__icon{
+					transform: rotate(180deg);
+				}
 			}
 		}
 		&__icon{
-			width: 20px;
-			height: 20px;
-			background: $c_alt;
 			cursor: pointer;
+			display: flex;
+			align-items: center;
+			svg{
+				width: 35px;
+				height: 35px;
+			}
 		}
 
 		&__label{
@@ -169,6 +205,12 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+		}
+		&__player{
+			padding: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 </style>

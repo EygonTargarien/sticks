@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		activePlayer: 0,
+		activePlayer: 1,
 		freezChangeActivePlayer: false,
 
 		player1: {
