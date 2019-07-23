@@ -1,0 +1,21 @@
+.title{
+	font-weight: bold;
+	font-family: $f_alt;
+	margin: 0;
+	margin-bottom: 30px;
+	font-size: 40px;
+	text-transform: uppercase;
+	@media(max-width: $md){
+		font-size: 25px;
+		margin-bottom: 15px;
+	}
+	&--light{
+		color: #fff;
+	}
+	span{
+		display: block;
+		color: $c_alt;
+		font-family: $f_main;
+		font-size: 12px;
+	}
+}

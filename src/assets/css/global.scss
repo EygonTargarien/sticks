@@ -1,0 +1,46 @@
+body {
+	scroll-behavior: smooth;
+	&.has-freeze {
+		overflow: hidden;
+	}
+}
+html{
+	scroll-behavior: smooth;
+}
+
+.container {
+	max-width: 1280px;
+	padding: 0 10px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 0.2s, transform 0.2s;
+}
+
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+	transform: translateY(10px);
+}
+
+
+.has-disabled{
+	opacity: 0.5;
+	pointer-events: none;
+}
+._flex{
+	display: flex;
+}
+._justify-center{
+	justify-content: center;
+}
+._justify-around{
+	justify-content: space-around;
+}
+._justify-between{
+	justify-content: space-between;
+}
+._text-center{
+	text-align: center;
+}

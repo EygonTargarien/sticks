@@ -1,0 +1,14 @@
+.link{
+	padding: 0;
+	text-transform: uppercase;
+	font-size: 18px;
+	border: none;
+	background: none;
+	font-family: $f_alt;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover{
+		color: $c_alt;
+	}
+}
